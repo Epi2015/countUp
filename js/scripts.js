@@ -5,7 +5,7 @@ divCount = function(countTo, countBy) {
       var countArray = [];
       for (i = 0; i < quotient; i++) {
         var result = result + countBy;
-        countArray.push(result);
+        countArray.push(" " + result);
       }
         return countArray;
   }else {
@@ -13,3 +13,18 @@ divCount = function(countTo, countBy) {
     alert("Make sure your divisor is less than your dividend");
   }
 }
+
+$(document).ready(function(){
+  $("form#numberEnter").submit(function(event) {
+
+  var countTo = parseInt($("input#countTo").val());
+  var countBy = parseInt($("input#countBy").val());
+
+  var finalResult = divCount(countTo, countBy);
+
+  $(".calculated").text(finalResult);
+
+  event.preventDefault();
+
+  });
+});
